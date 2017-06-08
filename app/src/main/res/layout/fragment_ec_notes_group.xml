@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewIndex"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:id="@+id/editModeView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/buttonRemoveNotesGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="1dp"
+                    android:minHeight="1dp"
+                    android:layout_marginLeft="@dimen/spacing_8"
+                    android:padding="@dimen/spacing_8"
+                    android:background="@drawable/button_selector"
+                    android:text="Remove Note"/>
+
+                <Button
+                    android:id="@+id/buttonAddNotesGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="1dp"
+                    android:minHeight="1dp"
+                    android:layout_marginLeft="@dimen/spacing_8"
+                    android:padding="@dimen/spacing_8"
+                    android:text="Add"
+                    android:background="@drawable/button_selector"/>
+
+                <Button
+                    android:id="@+id/buttonClose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="1dp"
+                    android:minHeight="1dp"
+                    android:layout_marginLeft="@dimen/spacing_8"
+                    android:padding="@dimen/spacing_8"
+                    android:text="Close"
+                    android:background="@drawable/button_selector"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/overviewView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_selector"
+                    android:minWidth="1dp"
+                    android:minHeight="1dp"
+                    android:padding="@dimen/spacing_8"
+                    android:layout_marginLeft="@dimen/spacing_8"
+                    android:text="Edit"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:background="@color/colorPrimary"/>
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none"
+            android:layout_marginBottom="@dimen/spacing_2">
+        </ListView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/light_blue_solid_rectangle_drawable"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total:"
+                android:layout_marginRight="@dimen/spacing_4"
+                android:paddingLeft="@dimen/spacing_4"/>
+
+            <TextView
+                android:id="@+id/textViewTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
