@@ -8,9 +8,13 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="dram">֏</string>
-    <string name="dollar">$</string>
-    <string name="euro">€</string>
+    <string name="dramIcon">֏</string>
+    <string name="dollarIcon">$</string>
+    <string name="euroIcon">€</string>
+
+    <string name="dram">DRAM</string>
+    <string name="dollar">DOLLAR</string>
+    <string name="euro">EURO</string>
 
     <string name="dramWidthColon">֏:</string>
     <string name="dollarWidthColon">$:</string>

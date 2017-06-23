@@ -1,6 +1,5 @@
 package com.example.sargiskh.expensecalculation;
 
-import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -13,16 +12,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.DatePicker;
 
-import com.example.sargiskh.expensecalculation.dialogFragments.ExpenseCalculationEditDialogFragment;
-import com.example.sargiskh.expensecalculation.fragments.ECFragment;
+import com.example.sargiskh.expensecalculation.currency.fragments.CurrencyFragment;
+import com.example.sargiskh.expensecalculation.expensecalculation.fragments.ECFragment;
+import com.example.sargiskh.expensecalculation.expensecalculation.fragments.HomeFragment;
+import com.example.sargiskh.expensecalculation.notes.fragments.NotesFragment;
+import com.example.sargiskh.expensecalculation.notification.NotificationFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        DatePickerDialog.OnDateSetListener,
-        ExpenseCalculationEditDialogFragment.OnDataChangeListener {
+        HomeFragment.MainFragmentListener {
 
     private Fragment ecFragment;
+    private Fragment homeFragment;
+
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,42 +40,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        ecFragment = fragmentManager.findFragmentByTag("ECFragment");
-        if (ecFragment == null) {
-            ecFragment = new ECFragment();
-        } else {
-            ecFragment = fragmentManager.findFragmentByTag("ECFragment");
-        }
-
-        fragmentTransaction.replace(R.id.frameLayout, ecFragment);
-        fragmentTransaction.commit();
+        navigationView.getMenu().getItem(0).setChecked(true);
+        setHomeFragment();
     }
 
-    /**
-    public ArrayList<ECNotesGroupModel> getNotesGroupModelArrayList() {
-        return notesGroupModelArrayList;
-    }
 
-    public ArrayList<ECNotesListModel> getNotesListModelArrayList() {
-        notesListModelArrayList.clear();
-        for (int i = 0; i < notesGroupModelArrayList.size(); i++) {
-            notesListModelArrayList.add(notesGroupModelArrayList.get(i).getNotesListModel());
-        }
-        return notesListModelArrayList;
-    }
-    */
 
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+            navigationView.getMenu().getItem(0).setChecked(true);
         } else {
             super.onBackPressed();
         }
@@ -106,9 +90,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_home) {
+            setHomeFragment();
+        } else if (id == R.id.nav_camera) {
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -118,6 +102,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.nav_send) {
 
+        } else if (id == R.id.nav_currency) {
+            setCurrencyFragment();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -126,16 +112,98 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+    //Main Fragment Listeners
     @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        ((ECFragment)ecFragment).onDateSet(view, year, month, dayOfMonth);
+    public void expenseCalculationButtonClicked() {
+        setECFragment();
     }
 
     @Override
-    public void onDataChanged(int position, String sum, String dateString, String description) {
-        ((ECFragment)ecFragment).onDataChanged(position, sum, dateString, description);
+    public void notesButtonClicked() {
+        setNotesFragment();
     }
 
+    @Override
+    public void notificationButtonClicked() {
+        setNotificationFragment();
+    }
+
+
+    public ECFragment getECFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        return (ECFragment)fragmentManager.findFragmentById(R.id.frameLayout);
+    }
+
+    private void setHomeFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        homeFragment = fragmentManager.findFragmentByTag("HomeFragment");
+        if (homeFragment == null) {
+            homeFragment = new HomeFragment();
+        }
+
+        ((HomeFragment) homeFragment).setListener(this);
+        fragmentTransaction.replace(R.id.frameLayout, homeFragment, "HomeFragment");
+        fragmentTransaction.commit();
+
+    }
+
+    private void setECFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        ecFragment = fragmentManager.findFragmentByTag("ECFragment");
+        if (ecFragment == null) {
+            ecFragment = new ECFragment();
+        }
+
+        fragmentTransaction.replace(R.id.frameLayout, ecFragment, "ECFragment");
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    private void setNotesFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        Fragment notesFragment = fragmentManager.findFragmentByTag("NotesFragment");
+        if (notesFragment == null) {
+            notesFragment = new NotesFragment();
+        }
+
+        fragmentTransaction.replace(R.id.frameLayout, notesFragment, "NotesFragment");
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    private void setNotificationFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        Fragment notificationFragment = fragmentManager.findFragmentByTag("NotificationFragment");
+        if (notificationFragment == null) {
+            notificationFragment = new NotificationFragment();
+        }
+
+        fragmentTransaction.replace(R.id.frameLayout, notificationFragment, "NotificationFragment");
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    private void setCurrencyFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        Fragment currencyFragment = fragmentManager.findFragmentByTag("CurrencyFragment");
+        if (currencyFragment == null) {
+            currencyFragment = new CurrencyFragment();
+        }
+
+        fragmentTransaction.replace(R.id.frameLayout, currencyFragment, "CurrencyFragment");
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
 
 }
 

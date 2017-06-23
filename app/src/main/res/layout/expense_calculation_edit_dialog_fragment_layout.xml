@@ -2,15 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:minWidth="400dp"
+    android:minHeight="200dp"
+    android:background="@color/ec_date_and_time_picker_dialog_background"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:paddingTop="@dimen/spacing_20"
         android:layout_marginLeft="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:text="Is Expanse:"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/dialog_text_size_18" />
+
+        <CheckBox
+            android:id="@+id/isExpanseCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/spacing_20"
+        android:layout_marginLeft="20dp"
         android:gravity="bottom"
         android:layout_gravity="bottom">
 
@@ -21,6 +49,7 @@
             android:layout_marginRight="10dp"
             android:gravity="bottom"
             android:textColor="@android:color/black"
+            android:textSize="@dimen/dialog_text_size_18"
             android:text="Sum:"/>
 
         <EditText
@@ -28,53 +57,89 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="100dp"
+            android:selectAllOnFocus="true"
+            android:focusableInTouchMode="true"
+            android:inputType="numberDecimal"
             android:textColor="@android:color/black"/>
-
-        <Spinner
-            android:id="@+id/spinnerCurrency"
-            android:minWidth="100dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </Spinner>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="20dp"
+        android:layout_gravity="center_vertical"
         android:layout_marginBottom="10dp"
-        android:gravity="center_vertical">
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/spacing_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:text="Currenacy:"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/dialog_text_size_18" />
+
+        <Spinner
+            android:id="@+id/currencySpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:minWidth="100dp">
+
+        </Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_20"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:gravity="center_vertical"
+            android:text="Date"
             android:textColor="@android:color/black"
-            android:text="Date"/>
+            android:textSize="@dimen/dialog_text_size_18" />
 
         <Button
             android:id="@+id/buttonDate"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/filter_button_heigth"
+            android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:background="@drawable/button_selector"
-            android:drawablePadding="10dp"
+            android:drawablePadding="5dp"
             android:drawableRight="@drawable/date"
-            android:padding="5dp"
+            android:minHeight="1dp"
+            android:minWidth="1dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp"
+            android:text="20/04/15 22 :40"
+            android:textAllCaps="false"
             android:textColor="@drawable/button_text_selector"
-            android:text="20/04/15"
-            android:textAllCaps="false"/>
+            android:textSize="@dimen/buttons_text_size" />
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingBottom="5dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_20"
         android:layout_marginLeft="20dp"
         android:gravity="left"
+        android:textSize="@dimen/dialog_text_size_18"
         android:textColor="@android:color/black"
         android:text="Description:"/>
 
@@ -82,15 +147,10 @@
         android:id="@+id/editTextDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
         android:layout_marginBottom="10dp"
         android:textColor="@android:color/black"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/light_grey"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -103,13 +163,14 @@
             android:id="@+id/buttonSave"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minHeight="60dp"
+            android:minHeight="45dp"
             android:minWidth="150dp"
             android:layout_weight="1"
             android:focusable="false"
             android:background="@drawable/button_selector"
             android:text="Save"
             android:textAllCaps="true"
+            android:textSize="@dimen/buttons_text_size"
             android:textColor="@drawable/button_text_selector"
             android:gravity="center" />
 
@@ -123,7 +184,7 @@
         <Button
             android:id="@+id/buttonCancel"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/button_selector"
             android:gravity="center"
@@ -131,6 +192,7 @@
             android:minWidth="150dp"
             android:text="Cancel"
             android:textAllCaps="true"
+            android:textSize="@dimen/buttons_text_size"
             android:textColor="@drawable/button_text_selector" />
     </LinearLayout>
 

@@ -2,12 +2,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sargiskh.expensecalculation.fragments.MainFragment">
+    tools:context=".expensecalculation.fragments.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="3"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/notesListButton"
+                android:layout_width="@dimen/ec_notes_list_icon_width_height"
+                android:layout_height="@dimen/ec_notes_list_icon_width_height"
+                android:background="@drawable/notes_list"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/notesButton"
+                android:layout_width="@dimen/ec_notes_list_icon_width_height"
+                android:layout_height="@dimen/ec_notes_list_icon_width_height"
+                android:background="@drawable/notes"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/notificationButton"
+                android:layout_width="@dimen/ec_notes_list_icon_width_height"
+                android:layout_height="@dimen/ec_notes_list_icon_width_height"
+                android:background="@drawable/notification"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/buttonNotes21"
+                android:layout_width="@dimen/ec_notes_list_icon_width_height"
+                android:layout_height="@dimen/ec_notes_list_icon_width_height"
+                android:text="Notes"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/buttonNotes221"
+                android:layout_width="@dimen/ec_notes_list_icon_width_height"
+                android:layout_height="@dimen/ec_notes_list_icon_width_height"
+                android:text="Notes"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/buttonNotes22"
+                android:layout_width="@dimen/ec_notes_list_icon_width_height"
+                android:layout_height="@dimen/ec_notes_list_icon_width_height"
+                android:text="Notes"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="3"/>
+    </LinearLayout>
 
 </FrameLayout>

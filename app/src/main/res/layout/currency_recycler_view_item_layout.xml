@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_6"
+        android:paddingBottom="@dimen/spacing_6"
+        android:paddingLeft="@dimen/spacing_4"
+        android:paddingRight="@dimen/spacing_4"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/fullNameEditText"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/shortNameEditText"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/simboleEditText"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/currencyRateEditText"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:singleLine="true"/>
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/spacing_8"
+            android:paddingRight="@dimen/spacing_8"
+            android:minWidth="1dp"
+            android:minHeight="1dp"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:text="-"
+            android:textColor="@color/ec_button_selected_blue_transparent"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="?android:attr/dividerHorizontal"/>
+
+</LinearLayout>

@@ -9,24 +9,40 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
+
         <LinearLayout
+            android:id="@+id/toolsView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:gravity="center_vertical|right"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textViewIndex"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|center_vertical"
                 android:layout_weight="1"/>
 
-            <LinearLayout
-                android:id="@+id/editModeView"
+            <Button
+                android:id="@+id/buttonEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_selector"
+                android:minWidth="1dp"
+                android:minHeight="1dp"
+                android:padding="@dimen/spacing_8"
+                android:layout_marginLeft="@dimen/spacing_8"
+                android:text="Edit"/>
+
+            <LinearLayout
+                android:id="@+id/editModeContainerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
                 android:orientation="horizontal">
+
                 <Button
                     android:id="@+id/buttonRemoveNotesGroup"
                     android:layout_width="wrap_content"
@@ -56,27 +72,10 @@
                     android:minWidth="1dp"
                     android:minHeight="1dp"
                     android:layout_marginLeft="@dimen/spacing_8"
-                    android:padding="@dimen/spacing_8"
-                    android:text="Close"
-                    android:background="@drawable/button_selector"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/overviewView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/buttonEdit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:background="@drawable/button_selector"
-                    android:minWidth="1dp"
-                    android:minHeight="1dp"
                     android:padding="@dimen/spacing_8"
-                    android:layout_marginLeft="@dimen/spacing_8"
-                    android:text="Edit"/>
+                    android:text="Close"/>
+
             </LinearLayout>
 
         </LinearLayout>
@@ -112,7 +111,8 @@
 
             <TextView
                 android:id="@+id/textViewTotal"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"/>
 
         </LinearLayout>

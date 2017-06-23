@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="horizontal"
+    android:padding="@dimen/spacing_4"
+    tools:context=".expensecalculation.fragments.ECFragment">
+
+    <LinearLayout
+        android:layout_width="@dimen/ec_notes_list_icon_width_height"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/notesListRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </android.support.v7.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/buttonAddNotesGroup"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/spacing_2"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_selector_light_blue_solid_circle_drawable_old"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="+"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/spacing_4"
+        android:layout_marginRight="@dimen/spacing_4"
+        android:background="@color/colorDisabled"/>
+
+    <FrameLayout
+        android:id="@+id/frameLayoutFragmentExpenseCalculation"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"></FrameLayout>
+
+</LinearLayout>

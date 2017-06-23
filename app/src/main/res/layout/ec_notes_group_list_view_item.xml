@@ -32,6 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="bottom|left"
+                    android:textStyle="bold"
                     android:textColor ="@android:color/black"
                     android:text="+"/>
 
@@ -39,7 +40,8 @@
                     android:id="@+id/textViewDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical|center"
+                    android:paddingLeft="@dimen/spacing_8"
+                    android:gravity="center_vertical|left"
                     android:text="01/08/1989"/>
                 </LinearLayout>
 
@@ -82,29 +84,36 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/detailView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingBottom="4dp"
         android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:visibility="visible">
+        android:paddingRight="4dp">
 
-        <TextView
-            android:id="@+id/textViewDram"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:id="@+id/detailView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
 
-        <TextView
-            android:id="@+id/textViewDollar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/textViewDram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/textViewEuro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/textViewDollar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textViewEuro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textViewDescription"
@@ -112,5 +121,7 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+
 
 </LinearLayout>

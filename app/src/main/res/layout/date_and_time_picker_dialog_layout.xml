@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/spacing_2"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <DatePicker
+            android:id="@+id/datePickerCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:calendarViewShown="false"
+            android:datePickerMode="calendar"
+            tools:ignore="UnusedAttribute">
+        </DatePicker>
+
+        <LinearLayout
+            android:id="@+id/dateAndTimeSpinnerViewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:gravity="center_horizontal|bottom"
+            android:layout_gravity="center_horizontal|bottom"
+            android:orientation="vertical">
+
+            <DatePicker
+                android:id="@+id/datePickerSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                tools:ignore="UnusedAttribute">
+            </DatePicker>
+
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner"
+                tools:ignore="UnusedAttribute">
+            </TimePicker>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFDFF"
+        android:paddingRight="@dimen/spacing_20"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/calendarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_8"
+            android:paddingBottom="@dimen/spacing_8"
+            android:paddingRight="@dimen/spacing_8"
+            android:paddingLeft="@dimen/spacing_8"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:textAllCaps="true"
+            android:background="@drawable/button_selector_white"
+            android:textColor="@color/colorAccent"
+            android:text="Calendar"/>
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_8"
+            android:paddingBottom="@dimen/spacing_8"
+            android:paddingRight="@dimen/spacing_8"
+            android:paddingLeft="@dimen/spacing_8"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:textAllCaps="true"
+            android:background="@drawable/button_selector_white"
+            android:textColor="@color/colorAccent"
+            android:text="Cancel"/>
+        <Button
+            android:id="@+id/okButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:paddingTop="@dimen/spacing_8"
+            android:paddingBottom="@dimen/spacing_8"
+            android:paddingRight="@dimen/spacing_8"
+            android:paddingLeft="@dimen/spacing_8"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:background="@drawable/button_selector_white"
+            android:textColor="@color/colorAccent"
+            android:text="OK"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+

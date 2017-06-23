@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.sargiskh.expensecalculation.notes.fragments.NotesFragment">
+
+    <Button
+        android:id="@+id/buttonGoTo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:minWidth="1dp"
+        android:text="GO TO 1"
+        android:background="@color/colorDarkOrange"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="74dp"
+            android:gravity="center_vertical">
+            <View
+                android:layout_gravity="center_vertical"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@android:color/black"/>
+        </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:dividerHeight="0dp"
+            android:divider="@null"
+            android:layout_height="match_parent">
+        </ListView>
+
+    </LinearLayout>
+</LinearLayout>
